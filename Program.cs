@@ -1,5 +1,5 @@
-﻿using MathOperators;
-using Console2._0;
+﻿using The_Basics.Console2._0;
+using The_Basics.MathOperators;
 
 namespace The_Basics
 {

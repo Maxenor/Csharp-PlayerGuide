@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Console2._0
+namespace The_Basics.Console2._0
 {
     public static class DefenseOfConsolas
     {

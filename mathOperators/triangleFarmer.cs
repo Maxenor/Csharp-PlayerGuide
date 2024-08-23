@@ -1,4 +1,4 @@
-namespace MathOperators
+namespace The_Basics.MathOperators
 {
     public static class TriangleFarmer
     {
