@@ -9,7 +9,7 @@ namespace MathOperators
             int eggs = Convert.ToInt32(Console.ReadLine());
             int sisters = eggs / 4;
             int duckbear = eggs % 4;
-            Console.WriteLine("Each sister gets " + sisters + " eggs and the duckbear gets " + duckbear + " eggs.");
+            Console.WriteLine($"Each sister gets {sisters} eggs and the duckbear gets {duckbear} eggs.");
             if (duckbear > sisters) {
                 Console.WriteLine("The duckbear gets more eggs than each sister.");
             }

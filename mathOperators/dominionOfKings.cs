@@ -18,7 +18,7 @@ namespace MathOperators
             int provinces = Convert.ToInt32(Console.ReadLine());
             
             int totalPoints = (estates * estatePoint) + (duchies * duchyPoint) + (provinces * provincePoint);
-            Console.WriteLine("The total points for " + kingName + " is " + totalPoints);
+            Console.WriteLine($"The total points for {kingName} is {totalPoints}.");
             
             Console.WriteLine("Press any key to return to the main menu.");
             Console.ReadKey();
