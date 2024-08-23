@@ -1,0 +1,25 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Rider / IntelliJ IDEA / Android Studio
+.idea/
+.idea_modules/
+*.ipr
+*.iws
+*.iml
+out/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.sln.ide
+*.sln.DotSettings.user
