@@ -1,12 +1,15 @@
 ﻿using The_Basics.Console2._0;
 using The_Basics.MathOperators;
+using The_Basics.DecisionMaking;
 
 namespace The_Basics
 {
         static class Program
     {
+        const string ErrorMessage = "Incorrect entry, please try again.";
         static void Main(string[] args)
         {
+            
             while (true)
             {
                 Console.Clear();
@@ -26,7 +29,7 @@ namespace The_Basics
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("Incorrect entry, please try again.");
+                    Console.WriteLine(ErrorMessage);
                 }
             }
         }
@@ -58,9 +61,12 @@ namespace The_Basics
                 case 2:
                     HandleConsole2_0();
                     break;
+                case 3:
+                    HandleDecisionMaking();
+                    break;
                 default:
                     Console.Clear();
-                    Console.WriteLine("Incorrect entry, please try again.");
+                    Console.WriteLine(ErrorMessage);
                     break;
             }
         }
@@ -86,7 +92,7 @@ namespace The_Basics
                     break;
                 default:
                     Console.Clear();
-                    Console.WriteLine("Incorrect entry, please try again.");
+                    Console.WriteLine(ErrorMessage);
                     break;
             }
         }
@@ -98,6 +104,31 @@ namespace The_Basics
             if (Convert.ToInt32(Console.ReadLine()) == 1)
             {
                 DefenseOfConsolas.Run();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine(ErrorMessage);
+            }
+        }
+        
+        static void HandleDecisionMaking()
+        {
+            Console.WriteLine("Chapter 3: Decision Making");
+            Console.WriteLine("1. Repair the clocktower");
+            Console.WriteLine("2. Watchtower");
+            int challengeToView = Convert.ToInt32(Console.ReadLine());
+            switch (challengeToView) {
+                case 1:
+                    ClocktowerRepair.Run();
+                    break;
+                case 2:
+                    Watchtower.Run();
+                    break;
+                default:
+                    Console.Clear();
+                    Console.WriteLine(ErrorMessage);
+                    break;
             }
         }
     }
