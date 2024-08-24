@@ -1,18 +1,18 @@
 ﻿using The_Basics.Console2._0;
 using The_Basics.MathOperators;
 using The_Basics.DecisionMaking;
+using The_Basics.SwitchStatements;
 
 namespace The_Basics
 {
         static class Program
     {
-        const string ErrorMessage = "Incorrect entry, please try again.";
+        const string ErrorMessage = "Incorrect entry, please try again. \n Press any key to go back";
         static void Main(string[] args)
         {
             
             while (true)
             {
-                Console.Clear();
                 DisplayMainMenu();
 
                 string input = Console.ReadLine();
@@ -30,6 +30,8 @@ namespace The_Basics
                 {
                     Console.Clear();
                     Console.WriteLine(ErrorMessage);
+                    Console.ReadKey();
+
                 }
             }
         }
@@ -53,22 +55,20 @@ namespace The_Basics
 
         static void HandleChapterSelection(int chapter)
         {
-            switch (chapter)
+            Action response = chapter switch
             {
-                case 1:
-                    HandleMathOperators();
-                    break;
-                case 2:
-                    HandleConsole2_0();
-                    break;
-                case 3:
-                    HandleDecisionMaking();
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine(ErrorMessage);
-                    break;
-            }
+                1 => HandleMathOperators,
+                2 => HandleConsole2_0,
+                3 => HandleDecisionMaking,
+                4 => HandleSwitchStatements,
+                5 => HandleLooping,
+                6 => HandleArrays,
+                7 => HandleMethods,
+                8 => HandleMemoryManagement,
+                _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey();
+                }
+            };
+            response();
         }
 
         static void HandleMathOperators()
@@ -78,22 +78,29 @@ namespace The_Basics
             Console.WriteLine("2. Challenge 2: The four sisters and the duckbear");
             Console.WriteLine("3. Challenge 3: The dominion of kings");
             Console.WriteLine("Select a challenge to view or type 'exit' to return to the main menu:");
-            int challengeToView = Convert.ToInt32(Console.ReadLine());
-            switch (challengeToView)
+    
+            string input = Console.ReadLine();
+            if (input.ToLower() == "exit")
             {
-                case 1:
-                    TriangleFarmer.Run();
-                    break;
-                case 2:
-                    FourSisters.Run();
-                    break;
-                case 3:
-                    DominionOfKings.Run();
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine(ErrorMessage);
-                    break;
+                return;
+            }
+
+            if (int.TryParse(input, out int challengeToView))
+            {
+                Action response = challengeToView switch
+                {
+                    1 => TriangleFarmer.Run,
+                    2 => FourSisters.Run,
+                    3 => DominionOfKings.Run,
+                    _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
+                };
+                response();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine(ErrorMessage);
+                Console.ReadKey();
             }
         }
 
@@ -101,14 +108,27 @@ namespace The_Basics
         {
             Console.WriteLine("Chapter 2: Console 2.0");
             Console.WriteLine("1. The defense of Consolas");
-            if (Convert.ToInt32(Console.ReadLine()) == 1)
+            string input = Console.ReadLine();
+            
+            if (input.ToLower() == "exit")
             {
-                DefenseOfConsolas.Run();
+                return;
+            }
+
+            if (int.TryParse(input, out int challengeToView))
+            {
+                Action response = challengeToView switch
+                {
+                    1 => DefenseOfConsolas.Run,
+                    _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
+                };
+                response();
             }
             else
             {
                 Console.Clear();
                 Console.WriteLine(ErrorMessage);
+                Console.ReadKey();
             }
         }
         
@@ -117,19 +137,73 @@ namespace The_Basics
             Console.WriteLine("Chapter 3: Decision Making");
             Console.WriteLine("1. Repair the clocktower");
             Console.WriteLine("2. Watchtower");
-            int challengeToView = Convert.ToInt32(Console.ReadLine());
-            switch (challengeToView) {
-                case 1:
-                    ClocktowerRepair.Run();
-                    break;
-                case 2:
-                    Watchtower.Run();
-                    break;
-                default:
-                    Console.Clear();
-                    Console.WriteLine(ErrorMessage);
-                    break;
+            string input = Console.ReadLine();
+            if (input.ToLower() == "exit")
+            {
+                return;
             }
+
+            if (int.TryParse(input, out int challengeToView))
+            {
+                Action response = challengeToView switch
+                {
+                    1 => ClocktowerRepair.Run,
+                    2 => Watchtower.Run,
+                    _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
+                };
+                response();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine(ErrorMessage);
+                Console.ReadKey();
+            }
+        }
+        
+        static void HandleSwitchStatements()
+        {
+            Console.WriteLine("Chapter 4: Switch Statements");
+            Console.WriteLine("1. Buying Inventory");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "exit")
+            {
+                return;
+            }
+
+            if (int.TryParse(input, out int challengeToView))
+            {
+                Action response = challengeToView switch
+                {
+                    1 => BuyingInventory.Run,
+                    _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
+                };
+                response();
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine(ErrorMessage);
+                Console.ReadKey();
+            }
+        }
+        
+        static void HandleLooping()
+        {
+            
+        }
+        
+        static void HandleArrays()
+        {
+            
+        }
+        static void HandleMethods()
+        {
+            
+        }
+        static void HandleMemoryManagement()
+        {
+            
         }
     }
 }
