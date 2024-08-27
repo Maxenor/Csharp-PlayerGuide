@@ -1,4 +1,5 @@
-﻿using static The_Basics.Tools.Tools;
+﻿using The_Basics.Arrays;
+using static The_Basics.Tools.Tools;
 using The_Basics.Console2._0;
 using The_Basics.MathOperators;
 using The_Basics.DecisionMaking;
@@ -145,7 +146,18 @@ namespace The_Basics
         
         static void HandleArrays()
         {
-            // todo
+            Console.WriteLine("Chapter 6: Arrays");
+            Console.WriteLine("1. The D'To Replicator");
+            Console.WriteLine("2. The laws of Freach");
+            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            Action response = challengeToView switch
+            {
+                0 => () => { Environment.Exit(0); },
+                1 => DToReplicator.Run,
+                2 => LawsOfFreach.Run,
+                _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
+            };
+            response();
         }
         static void HandleMethods()
         {

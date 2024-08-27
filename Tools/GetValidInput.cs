@@ -1,5 +1,9 @@
 namespace The_Basics.Tools
 {
+    /// <summary>
+    /// This class contains tools that can be used in multiple places in the project.
+    ///  - GetValidInput: This method takes a string prompt and returns an integer input from the user.
+    /// </summary>
     public static class Tools
     {
         public static int GetValidInput(string prompt)
