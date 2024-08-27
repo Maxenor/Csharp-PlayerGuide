@@ -4,6 +4,7 @@ using The_Basics.Console2._0;
 using The_Basics.MathOperators;
 using The_Basics.DecisionMaking;
 using The_Basics.Looping;
+using The_Basics.Methods;
 using The_Basics.SwitchStatements;
 
 namespace The_Basics
@@ -161,7 +162,16 @@ namespace The_Basics
         }
         static void HandleMethods()
         {
-            // todo
+            Console.WriteLine("Chapter 7: Methods");
+            Console.WriteLine("1. Countdown");
+            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            Action response = challengeToView switch
+            {
+                0 => () => { Environment.Exit(0); },
+                1 => Countdown.Run,
+                _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
+            };
+            response();
         }
         static void HandleMemoryManagement()
         {
