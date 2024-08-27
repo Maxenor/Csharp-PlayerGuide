@@ -13,7 +13,6 @@ namespace The_Basics
         const string ChallengeSelectionMessage = "Select a challenge to view or type 'exit' or 'quit' to return to the main menu: ";
         static void Main(string[] args)
         {
-            
             while (true)
             {
                 Console.Clear();
@@ -137,6 +136,7 @@ namespace The_Basics
             {
                 0 => () => { Environment.Exit(0); },
                 1 => Prototype.Run,
+                2 => MagicCannon.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response();
