@@ -1,3 +1,4 @@
+using static The_Basics.Tools.Tools;
 namespace The_Basics.Looping
 {
     public static class Prototype
@@ -11,11 +12,9 @@ namespace The_Basics.Looping
 
         private static int GetUser1Number()
         {
-            while (true)
-            {
-                Console.Write("User 1, enter a number between 0 and 100: ");
-                var input = Console.ReadLine();
-                if (int.TryParse(input, out var number) && number is >= 0 and <= 100) return number;
+            while (true) {
+                var input = GetValidInput("User 1, enter a number between 0 and 100: ");
+                if (input is >= 0 and <= 100) return input;
                 Console.Clear();
                 Console.WriteLine("Invalid input. Please enter a number between 0 and 100.");
             }
@@ -25,23 +24,15 @@ namespace The_Basics.Looping
         {
             while (true)
             {
-                Console.Write("User 2, guess the number: ");
-                var input = Console.ReadLine();
-                if (int.TryParse(input, out var guess))
+                var input = GetValidInput("User 2, guess the number: ");
+            
+                if (input == number)
                 {
-                    if (guess == number)
-                    {
-                        Console.Write("You guessed the correct number!\nPress any key to return to the main menu.");
-                        Console.ReadKey();
-                        break;
-                    }
-                    Console.WriteLine(guess < number ? $"{guess} is too low." : $"{guess} is too high.");
+                    Console.Write("You guessed the correct number!\n Press any key to return to the main menu.");
+                    Console.ReadKey();
+                    break;
                 }
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Invalid input. Please enter a number between 0 and 100.");
-                }
+                Console.WriteLine(input < number ? $"{input} is too low." : $"{input} is too high.");
             }
         }
     }

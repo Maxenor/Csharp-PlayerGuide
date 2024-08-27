@@ -1,13 +1,13 @@
+using static The_Basics.Tools.Tools;
 namespace The_Basics.MathOperators
 {
     public static class FourSisters
     {
         public static void Run()
         {
-            Console.WriteLine("How many eggs made today ?");
-            int eggs = Convert.ToInt32(Console.ReadLine());
-            int sisters = eggs / 4;
-            int duckbear = eggs % 4;
+            var eggs = GetValidInput("How many eggs made today ?");
+            var sisters = eggs / 4;
+            var duckbear = eggs % 4;
             Console.WriteLine($"Each sister gets {sisters} eggs and the duckbear gets {duckbear} eggs.");
             if (duckbear > sisters) {
                 Console.WriteLine("The duckbear gets more eggs than each sister.");

@@ -1,3 +1,4 @@
+using static The_Basics.Tools.Tools;
 namespace The_Basics.MathOperators
 {
     public static class DominionOfKings
@@ -5,21 +6,18 @@ namespace The_Basics.MathOperators
         public static void Run()
         {
             Console.WriteLine("What is the name of the king?");
-            string kingName = Console.ReadLine();
-            int estatePoint = 1;
-            int duchyPoint = 3;
-            int provincePoint = 6;
+            var kingName = Console.ReadLine();
+            const int estatePoint = 1;
+            const int duchyPoint = 3;
+            const int provincePoint = 6;
+
+            var estate = GetValidInput("How many estates do you have?");
+            var duchy = GetValidInput("How many duchies do you have?");
+            var province = GetValidInput("How many provinces do you have?");
             
-            Console.WriteLine("How many estates do you have?");
-            int estates = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("How many duchies do you have?");
-            int duchies = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("How many provinces do you have?");
-            int provinces = Convert.ToInt32(Console.ReadLine());
-            
-            int totalPoints = (estates * estatePoint) + (duchies * duchyPoint) + (provinces * provincePoint);
+            var totalPoints = (estate * estatePoint) + (duchy * duchyPoint) + (province * provincePoint);
             Console.WriteLine($"The total points for {kingName} is {totalPoints}.");
-            
+
             Console.WriteLine("Press any key to return to the main menu.");
             Console.ReadKey();
         }
