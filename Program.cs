@@ -4,6 +4,7 @@ using The_Basics.Console2._0;
 using The_Basics.MathOperators;
 using The_Basics.DecisionMaking;
 using The_Basics.Looping;
+using The_Basics.Memory;
 using The_Basics.Methods;
 using The_Basics.SwitchStatements;
 
@@ -175,7 +176,16 @@ namespace The_Basics
         }
         static void HandleMemoryManagement()
         {
-            // todo
+            Console.WriteLine("Chapter 8: Memory Management");
+            Console.WriteLine("1. Manticore Hunt");
+            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            Action response = challengeToView switch
+            {
+                0 => () => { Environment.Exit(0); },
+                1 => ManticoreHunt.Run,
+                _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
+            };
+            response();
         }
     }
 }
