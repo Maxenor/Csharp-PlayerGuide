@@ -1,6 +1,6 @@
 namespace OOP.Enumerations
 {
-    public class ChestEnum
+    public static class ChestEnum
     {
         private enum ChestState
         {
@@ -17,7 +17,7 @@ namespace OOP.Enumerations
             while (true)
             {
                 Console.Write($"The chest is {chestState}, what do you want to do?" +
-                              $"\nPossible choices are: Open, Close, Lock, Unlock : ");
+                              $"\nPossible choices are: Open, Close, Lock, Unlock, Quit : ");
                 var choice = Console.ReadLine();
                 switch (choice)
                 {
@@ -37,6 +37,10 @@ namespace OOP.Enumerations
                         chestState = ChestState.Unlocked;
                         Console.WriteLine("You unlocked the chest");
                         break;
+                    case "Quit":
+                        Console.WriteLine("Press any key to return to the main menu...");
+                        Console.ReadKey();
+                        return;
                     default:
                         Console.WriteLine("Invalid choice");
                         break;
