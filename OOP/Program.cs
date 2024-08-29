@@ -1,4 +1,5 @@
 ﻿using OOP.Enumerations;
+using OOP.Tuples;
 using static OOP.Tools.Tools;
 namespace OOP
 {
@@ -93,6 +94,7 @@ namespace OOP
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
+                1 => SimulaSoup.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response();
