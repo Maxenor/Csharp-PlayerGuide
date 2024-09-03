@@ -1,4 +1,5 @@
-﻿using OOP.Enumerations;
+﻿using OOP.Classes;
+using OOP.Enumerations;
 using OOP.Tuples;
 using static OOP.Tools.Tools;
 namespace OOP
@@ -14,7 +15,7 @@ namespace OOP
                 Console.Clear();
                 DisplayMainMenu();
 
-                var chapter = GetValidInput("Select a chapter to view or type 'exit' to quit : ");
+                var chapter = GetValidInput("Select a chapter to view or type 'exit' to quit : ", typeof(int));
                 Console.Clear();
                 HandleChapterSelection(chapter);
             }
@@ -43,7 +44,7 @@ namespace OOP
             Console.WriteLine("15. Chapter 15: Some Useful Types");
         }
 
-        static void HandleChapterSelection(int chapter)
+        static void HandleChapterSelection(object chapter)
         {
             Action response = chapter switch
             {
@@ -74,7 +75,7 @@ namespace OOP
             Console.WriteLine("Chapter 1: Enumerations");
             Console.WriteLine("1. Simula's Test");
 
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             
             Action response = challengeToView switch
             {
@@ -89,7 +90,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 2: Tuples");
             Console.WriteLine("1. Simula's Soup");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
                 
             Action response = challengeToView switch
             {
@@ -105,11 +106,12 @@ namespace OOP
         {
             Console.WriteLine("Chapter 3: Decision Making");
             Console.WriteLine("1. Vin Fletcher's Arrows");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
+                1 => VinFletcherArrows.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response();
@@ -119,7 +121,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 4: Information Hiding");
             Console.WriteLine("1. Buying Inventory");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -132,7 +134,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 5: Properties");
             Console.WriteLine("1. The Properties of Arrows");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -147,7 +149,7 @@ namespace OOP
             Console.WriteLine("Chapter 6: Static");
             Console.WriteLine("1. Arrow Factories");
             Console.WriteLine("2. The Laws of Freach");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -165,7 +167,7 @@ namespace OOP
             Console.WriteLine("5. 15 Puzzle");
             Console.WriteLine("6. Hangman");
             Console.WriteLine("7. Tic Tac Toe");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -177,7 +179,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 8: Inheritance");
             Console.WriteLine("1. Packing Inventory");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -190,7 +192,7 @@ namespace OOP
             Console.WriteLine("Chapter 9: Polymorphism");
             Console.WriteLine("1. Labeling Inventory");
             Console.WriteLine("2. The Old Robot");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -202,7 +204,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 10: Interfaces");
             Console.WriteLine("1. Robotic Interface");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -214,7 +216,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 11: Structs");
             Console.WriteLine("1. Room Coordinates");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -226,7 +228,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 12: Records");
             Console.WriteLine("1. War Preparations");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -238,7 +240,7 @@ namespace OOP
         {
             Console.WriteLine("Chapter 13: Generics");
             Console.WriteLine("1. Colored Items");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -256,7 +258,7 @@ namespace OOP
             Console.WriteLine("5. Amaroks");
             Console.WriteLine("6. Getting Armed");
             Console.WriteLine("7. Getting Help");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
@@ -270,7 +272,7 @@ namespace OOP
             Console.WriteLine("1. The Robot Pilot");
             Console.WriteLine("2. Time in the cavern");
             Console.WriteLine("3. Lists of Commands");
-            var challengeToView = GetValidInput(ChallengeSelectionMessage);
+            var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
