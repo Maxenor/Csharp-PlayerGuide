@@ -7,7 +7,7 @@ namespace OOP
         static class Program
     {
         const string ErrorMessage = "Incorrect entry, please try again. \n Press any key to go back";
-        const string ChallengeSelectionMessage = "Select a challenge to view or type 'exit' or 'quit' to return to the main menu: ";
+        const string ChallengeSelectionMessage = "Select a challenge to view or type 'exit' or 'quit' to quit: ";
         static void Main(string[] args)
         {
             while (true)
