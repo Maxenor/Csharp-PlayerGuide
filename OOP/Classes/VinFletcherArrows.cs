@@ -13,8 +13,8 @@ namespace OOP.Classes
                     var fletching = GetFletchingType();
 
                     var arrow = new Arrow(arrowhead, shaft, fletching);
-                    Console.WriteLine($"The cost of the arrow made of a {arrow.GetArrowhead()} arrowhead," +
-                                      $" a {arrow.GetFletching()} fletching and a shaft of {arrow.GetShaft()} centimeters is {arrow.GetCost()} gold.");
+                    Console.WriteLine($"The cost of the arrow made of a { arrowhead } arrowhead," +
+                                      $" a { fletching } fletching and a shaft of {shaft} centimeters is {arrow.GetCost()} gold.");
 
                     Console.WriteLine("Press any key to return to the main menu...");
                     Console.ReadKey();
@@ -83,9 +83,9 @@ namespace OOP.Classes
 
     public class Arrow
     {
-        private Arrowhead _arrowhead;
-        private float _shaft;
-        private Fletching _fletching;
+        private Arrowhead _arrowhead { get; }
+        private float _shaft { get; }
+        private Fletching _fletching { get; }
 
         public Arrow(Arrowhead arrowhead, float shaft, Fletching fletching)
         {
@@ -93,10 +93,6 @@ namespace OOP.Classes
             _shaft = shaft;
             _fletching = fletching;
         }
-        
-        public Arrowhead GetArrowhead() => _arrowhead;
-        public float GetShaft() => _shaft;
-        public Fletching GetFletching() => _fletching;
 
         public float GetCost()
         {
