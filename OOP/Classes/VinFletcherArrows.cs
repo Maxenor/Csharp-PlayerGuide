@@ -8,14 +8,34 @@ namespace OOP.Classes
             {
                 try
                 {
-                    var arrowhead = GetArrowheadType();
-                    var shaft = GetShaftLength();
-                    var fletching = GetFletchingType();
+                    Console.Write("Enter arrow type (Elite, Beginner, Intermediate) or 'other' for a custom arrow: ");
+                    var arrowType = Console.ReadLine();
+                    switch (arrowType) {
+                        case "Elite":
+                            var eliteArrow = Arrow.CreateEliteArrow();
+                            Console.WriteLine($"The cost of the elite arrow is {eliteArrow.GetCost()} gold.");
+                            break;
+                        case "Beginner":
+                            var beginnerArrow = Arrow.CreateBeginnerArrow();
+                            Console.WriteLine("The cost of the beginner arrow is " + beginnerArrow.GetCost() + " gold.");
+                            break;
+                        case "Intermediate":
+                            var intermediateArrow = Arrow.CreateIntermediateArrow();
+                            Console.WriteLine("The cost of the intermediate arrow is " + intermediateArrow.GetCost() + " gold.");
+                            break;
+                        case "other":
+                            var arrowhead = GetArrowheadType();
+                            var shaft = GetShaftLength();
+                            var fletching = GetFletchingType();
 
-                    var arrow = new Arrow(arrowhead, shaft, fletching);
-                    Console.WriteLine($"The cost of the arrow made of a { arrowhead } arrowhead," +
-                                      $" a { fletching } fletching and a shaft of {shaft} centimeters is {arrow.GetCost()} gold.");
-
+                            var arrow = new Arrow(arrowhead, shaft, fletching);
+                            Console.WriteLine($"The cost of the arrow made of a { arrowhead } arrowhead," +
+                                              $" a { fletching } fletching and a shaft of {shaft} centimeters is {arrow.GetCost()} gold.");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid arrow type. Please enter a valid input.");
+                            break;
+                    }
                     Console.WriteLine("Press any key to return to the main menu...");
                     Console.ReadKey();
                     break;
@@ -101,6 +121,21 @@ namespace OOP.Classes
             cost += (_shaft * 0.05f);
             cost += (float)_fletching;
             return cost;
+        }
+
+        public static Arrow CreateEliteArrow()
+        {
+            return new Arrow(Arrowhead.Steel,95,Fletching.Plastic);
+        }
+        
+        public static Arrow CreateBeginnerArrow()
+        {
+            return new Arrow(Arrowhead.Wood,75,Fletching.GooseFeather);
+        }
+        
+        public static Arrow CreateIntermediateArrow()
+        {
+            return new Arrow(Arrowhead.Steel,65,Fletching.GooseFeather);
         }
     }
 }
