@@ -4,7 +4,7 @@ using OOP.Tuples;
 using static OOP.Tools.Tools;
 namespace OOP
 {
-        static class Program
+    static class Program
     {
         const string ErrorMessage = "Incorrect entry, please try again. \n Press any key to go back";
         const string ChallengeSelectionMessage = "Select a challenge to view or type 'exit' or 'quit' to quit: ";
