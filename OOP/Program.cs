@@ -1,4 +1,5 @@
-﻿using OOP.Classes;
+﻿using OOP.CatacombsOfClass;
+using OOP.Classes;
 using OOP.Enumerations;
 using OOP.Tuples;
 using static OOP.Tools.Tools;
@@ -120,11 +121,12 @@ namespace OOP
         static void HandleInfoHiding()
         {
             Console.WriteLine("Chapter 4: Information Hiding");
-            Console.WriteLine("1. Buying Inventory");
+            Console.WriteLine("1. Vin Fletcher's Troubles");
             var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
+                1 => VinFletcherArrows.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response(); 
@@ -138,6 +140,7 @@ namespace OOP
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
+                1 => VinFletcherArrows.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response();
@@ -148,11 +151,11 @@ namespace OOP
         {
             Console.WriteLine("Chapter 6: Static");
             Console.WriteLine("1. Arrow Factories");
-            Console.WriteLine("2. The Laws of Freach");
             var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
+                1 => VinFletcherArrows.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response();
@@ -162,15 +165,24 @@ namespace OOP
             Console.WriteLine("Chapter 7: The Catacombs of Class");
             Console.WriteLine("1. The Point");
             Console.WriteLine("2. The Color");
-            Console.WriteLine("3. The Locked Door");
-            Console.WriteLine("4. Rock Paper Scissors");
-            Console.WriteLine("5. 15 Puzzle");
-            Console.WriteLine("6. Hangman");
-            Console.WriteLine("7. Tic Tac Toe");
+            Console.WriteLine("3. The Card");
+            Console.WriteLine("4. The Locked Door");
+            Console.WriteLine("5. Rock Paper Scissors");
+            Console.WriteLine("6. 15 Puzzle");
+            Console.WriteLine("7. Hangman");
+            Console.WriteLine("8. Tic Tac Toe");
             var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
                 0 => () => { Environment.Exit(0); },
+                1 => ThePoint.Run,
+                2 => TheColor.Run,
+                3 => TheCard.Run,
+                4 => TheLockedDoor.Run,
+                5 => RockPaperScissors.Run,
+                6 => Puzzle.Run,
+                7 => Hangman.Run,
+                8 => TicTacToe.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response();
