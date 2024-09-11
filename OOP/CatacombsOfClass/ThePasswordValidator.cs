@@ -24,7 +24,7 @@ namespace OOP.CatacombsOfClass
         
         private class PasswordValidator(string password)
         {
-            public static bool Validate(string password)
+            public bool Validate(string password)
             {
                 if (password.Length is < 7 or > 13)
                 {
