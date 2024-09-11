@@ -167,10 +167,11 @@ namespace OOP
             Console.WriteLine("2. The Color");
             Console.WriteLine("3. The Card");
             Console.WriteLine("4. The Locked Door");
-            Console.WriteLine("5. Rock Paper Scissors");
-            Console.WriteLine("6. 15 Puzzle");
-            Console.WriteLine("7. Hangman");
-            Console.WriteLine("8. Tic Tac Toe");
+            Console.WriteLine("5. The Password Validator");
+            Console.WriteLine("6. Rock Paper Scissors");
+            Console.WriteLine("7. 15 Puzzle");
+            Console.WriteLine("8. Hangman");
+            Console.WriteLine("9. Tic Tac Toe");
             var challengeToView = GetValidInput(ChallengeSelectionMessage, typeof(int));
             Action response = challengeToView switch
             {
@@ -179,10 +180,11 @@ namespace OOP
                 2 => TheColor.Run,
                 3 => TheCard.Run,
                 4 => TheLockedDoor.Run,
-                5 => RockPaperScissors.Run,
-                6 => Puzzle.Run,
-                7 => Hangman.Run,
-                8 => TicTacToe.Run,
+                5 => ThePasswordValidator.Run,
+                6 => RockPaperScissors.Run,
+                7 => Puzzle.Run,
+                8 => Hangman.Run,
+                9 => TicTacToe.Run,
                 _ => () => { Console.Clear(); Console.Write(ErrorMessage); Console.ReadKey(); }
             };
             response();
